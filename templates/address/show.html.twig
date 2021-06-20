@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Address{% endblock %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ address.address }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Zip_code</th>
+                <td>{{ address.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>Phone_number</th>
+                <td>{{ address.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Client_id</th>
+                <td>{{ address.clientId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-secondary" href="{{ path('address_index') }}">back to list</a>
+
+    <a class="btn btn-outline-primary" href="{{ path('address_edit', {'id': address.id}) }}">edit</a>
+
+    {{ include('address/_delete_form.html.twig') }}
+{% endblock %}

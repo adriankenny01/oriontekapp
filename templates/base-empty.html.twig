@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Adrian Kenny Acosta Ramírez">
+        <title>{% block title %}Bienvenido a OriontekApp{% endblock %}</title>
+
+        <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet" >
+        <link href="css/signin.css" rel="stylesheet">
+        
+        {% block stylesheets %}
+     
+        {% endblock %}
+
+        {% block javascripts %}
+            
+        {% endblock %}
+    </head>
+    <body class="text-center">
+
+        {% block body %}{% endblock %}
+       
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/feather.min.js"></script>
+        <script src="/js/chart.min.js">
+        </script><script src="/js/dashboard.js"></script>
+    </body>
+
+</html>

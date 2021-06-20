@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block body %}
+    <h1>Company</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Owner</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+            <tr>
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.date ? company.date|date('Y-F-d') : '' }}</td>
+                <td>{{ company.owner }}</td>
+                <td>
+                    <a class="btn btn-outline-secondary" href="{{ path('company_show', {'id': company.id}) }}">show</a>
+                    <a class="btn btn-outline-primary" href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('company_new') }}" class="btn btn-primary">Create new</a>
+{% endblock %}

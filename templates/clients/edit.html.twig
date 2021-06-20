@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Client{% endblock %}
+
+{% block body %}
+    <h1>Edit Client </h1>
+    {{ include('clients/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-outline-secondary mt-2" href="{{ path('clients_index') }}">back to list</a>
+
+    {{ include('clients/_delete_form.html.twig') }}
+
+    <hr class="mt-5"/>
+
+    <a class="btn btn-outline-info mb-1" href="{{ path('address_new' , {'client_id' : client_id}) }}">New Address</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Zip_code</th>
+                <th>Phone_number</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for address in addresses %}
+            <tr>
+                <td>{{ address.id }}</td>
+                <td>{{ address.address }}</td>
+                <td>{{ address.city }}</td>
+                <td>{{ address.zipCode }}</td>
+                <td>{{ address.phoneNumber }}</td>
+                <td>
+                    <a class="btn btn-outline-secondary" href="{{ path('address_show', {'id': address.id}) }}">show</a>
+                    <a class="btn btn-outline-primary"  href="{{ path('address_edit', {'id': address.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+{% endblock %}
